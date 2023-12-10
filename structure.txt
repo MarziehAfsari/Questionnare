@@ -1,0 +1,8 @@
+frondend:
+    - JS (react)
+
+backend:
+    - Python (Django)
+
+database:
+    - sqlite
