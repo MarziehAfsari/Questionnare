@@ -5,7 +5,6 @@ const MultipleChoiceQuestion = ({ question, choices, setChoice }) => {
 
   const handleAnswerSelection = (choice) => {
     setSelectedAnswer(choice);
-    setChoice(choice);
   };
 
   return (
@@ -13,7 +12,7 @@ const MultipleChoiceQuestion = ({ question, choices, setChoice }) => {
       <h3>{question}</h3>
       <ul>
         {choices.map((choice, index) => (
-          <li key={index}>
+          <div key={index} style={{ display: 'block', marginBottom: '10px', textAlign: 'left' }}>
             <label>
               <input
                 type="radio"
@@ -24,7 +23,7 @@ const MultipleChoiceQuestion = ({ question, choices, setChoice }) => {
               />
               {choice}
             </label>
-          </li>
+          </div>
         ))}
       </ul>
       <p>Selected Answer: {selectedAnswer}</p>

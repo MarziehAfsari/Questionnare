@@ -1,9 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import QuestionBox from "../components/questions/AnswerBox/AnswerBox.js";
 import { Link } from 'react-router-dom';
 
-const About = () => {
+const Finish = () => {
   const containerStyle = {
     // Layout
     display: 'flex',
@@ -43,13 +40,11 @@ const About = () => {
   const buttonStyle = {
     padding: '10px 20px',
     fontSize: '16px',
-    // backgroundColor: '#3498db',
     color: '#3498db',
     borderRadius: '5px',
     textDecoration: 'none',
     border: 'none',
     cursor: 'pointer',
-    marginTop: '20px', 
   };
 
   const buttonStyle2 = {
@@ -61,27 +56,53 @@ const About = () => {
     cursor: 'pointer',
   };
 
-
-  const [answer, setAnswer] = useState('');
-  const handleAnswer = (answer) => {
-    return (answer)
+  const paragraphStyles = {
+    // Font properties
+    fontFamily: 'Arial, sans-serif',
+    fontSize: '22px',
+    fontWeight: 'normal', // or 'bold', 'bolder', 'lighter', 100 to 900
+    fontStyle: 'normal', // or 'italic', 'oblique'
+    lineHeight: '2.5', // or specific value, normal, or number
+  
+    // Text color
+    color: 'MediumSeaGreen',
+  
+    // Text alignment
+    textAlign: 'left', // or 'center', 'right', 'justify'
+  
+    // Text decoration
+    textDecoration: 'none', // or 'underline', 'overline', 'line-through'
+  
+    // Margin and padding
+    margin: '0', // or specific values for each side, e.g., '10px 20px'
+    padding: '0', // or specific values for each side, e.g., '10px 20px'
+  
+    // Border
+    border: 'none', // or specific values, e.g., '1px solid #ddd'
+    borderRadius: '0', // or specific values, e.g., '5px'
+  
+    // Background color
+    backgroundColor: 'transparent', // or specific color
+  
+    // Other
+    textTransform: 'none', // or 'uppercase', 'lowercase', 'capitalize'
+    letterSpacing: 'normal', // or specific value
+    overflow: 'visible', // or 'hidden', 'scroll', 'auto'
+  
+    // Box shadow
+    boxShadow: 'none', // or specific values, e.g., '0px 2px 5px rgba(0, 0, 0, 0.1)'
   };
+  
+
   return (
     <div style={containerStyle}>
-      <h2>Mode Choice</h2>
-      <QuestionBox
-        question="How old are you?"
-        onAnswerSubmit={setAnswer}
-      />
-      <button onClick={() => handleAnswer(answer)}  style={buttonStyle}> Submit </button>
+      <p style={paragraphStyles}> Thank you for participating </p>
+      <button style={buttonStyle}> Finish </button>
       <Link to="/PageThree" style={buttonStyle2}>
-        <button> Next  </button>
-      </Link>
-      <Link to="/" style={buttonStyle2}>
         <button> Back </button>
       </Link>
     </div>
   );
 };
 
-export default About;
+export default Finish;

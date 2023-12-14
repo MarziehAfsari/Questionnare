@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import QuestionBox from "../components/questions/AnswerBox/AnswerBox.js";
+import CheckboxQuestion from "../components/questions/Checkboxes/CheckBoxes.js";
 import { Link } from 'react-router-dom';
 
-const About = () => {
+
+
+const PageThree = () => {
   const containerStyle = {
     // Layout
     display: 'flex',
@@ -43,13 +45,12 @@ const About = () => {
   const buttonStyle = {
     padding: '10px 20px',
     fontSize: '16px',
-    // backgroundColor: '#3498db',
     color: '#3498db',
     borderRadius: '5px',
     textDecoration: 'none',
     border: 'none',
     cursor: 'pointer',
-    marginTop: '20px', 
+    marginTop: '20px',
   };
 
   const buttonStyle2 = {
@@ -60,28 +61,29 @@ const About = () => {
     border: 'none',
     cursor: 'pointer',
   };
-
-
   const [answer, setAnswer] = useState('');
-  const handleAnswer = (answer) => {
-    return (answer)
+  const handleAnswer = (selectedChoices) => {
+    console.log('Selected Choices:', selectedChoices);
   };
+
   return (
     <div style={containerStyle}>
       <h2>Mode Choice</h2>
-      <QuestionBox
-        question="How old are you?"
+      <CheckboxQuestion
+        question="Which mode of transport do you use for going to the work?"
+        choices={["Car", "Bus", "Metro", "Walk"]}
         onAnswerSubmit={setAnswer}
       />
-      <button onClick={() => handleAnswer(answer)}  style={buttonStyle}> Submit </button>
-      <Link to="/PageThree" style={buttonStyle2}>
-        <button> Next  </button>
+      <button onClick={() => handleAnswer(answer)} style={buttonStyle}> Submit </button>
+      <Link to="/Finish" style={buttonStyle2}>
+        <button> Next </button>
       </Link>
-      <Link to="/" style={buttonStyle2}>
+      <Link to="/About" style={buttonStyle2}>
         <button> Back </button>
       </Link>
+
     </div>
   );
 };
 
-export default About;
+export default PageThree;
